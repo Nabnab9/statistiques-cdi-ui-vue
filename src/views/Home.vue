@@ -1,7 +1,6 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+    <HelloWorld :timeSlots="timeSlots"/>
   </div>
 </template>
 
@@ -14,5 +13,18 @@ import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
     HelloWorld,
   },
 })
-export default class Home extends Vue {}
+export default class Home extends Vue {
+
+  private timeSlots: any = {};
+
+  private mounted() {
+    console.log("zesifgjgoùiehz");
+    
+     this.$http.get('http://192.168.1.34:8082/time-slots')
+      .then((response: any) => {
+        this.timeSlots = response.body;
+        console.log(this.timeSlots);
+      });
+  }
+}
 </script>

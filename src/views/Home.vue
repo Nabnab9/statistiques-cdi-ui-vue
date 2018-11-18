@@ -18,9 +18,9 @@ export default class Home extends Vue {
   private timeSlots: any = {};
 
   private mounted() {
-    console.log("zesifgjgoùiehz");
-    
-     this.$http.get('http://192.168.1.34:8082/time-slots')
+    console.log('zesifgjgoùiehz');
+
+    this.$http.get('http://192.168.1.34:8082/time-slots')
       .then((response: any) => {
         this.timeSlots = response.body;
         console.log(this.timeSlots);

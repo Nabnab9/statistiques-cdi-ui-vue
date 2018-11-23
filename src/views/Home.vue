@@ -8,6 +8,10 @@
 import { Component, Vue } from 'vue-property-decorator';
 import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
 
+import TimeSlotService from '../services/time-slot.service';
+import { HttpResponse } from 'vue-resource/types/vue_resource';
+
+
 @Component({
   components: {
     HelloWorld,
@@ -15,16 +19,15 @@ import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
 })
 export default class Home extends Vue {
 
+  public timeSlotsService = new TimeSlotService();
+
   private timeSlots: any = {};
 
   private mounted() {
-    console.log('zesifgjgoùiehz');
-
-    this.$http.get('http://192.168.1.34:8082/time-slots')
-      .then((response: any) => {
-        this.timeSlots = response.body;
-        console.log(this.timeSlots);
-      });
+    this.timeSlotsService.findAll()
+    .then((response: HttpResponse) => {
+      this.timeSlots = response.data;
+    });
   }
 }
 </script>

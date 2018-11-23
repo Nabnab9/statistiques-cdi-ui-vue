@@ -5,10 +5,12 @@ import router from './router';
 import store from './store';
 import './registerServiceWorker';
 import VueResource from 'vue-resource';
+import VueRx from 'vue-rx';
 
 Vue.config.productionTip = false;
 
 Vue.use(VueResource);
+Vue.use(VueRx);
 
 new Vue({
   router,

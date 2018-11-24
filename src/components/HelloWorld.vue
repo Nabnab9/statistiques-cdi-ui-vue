@@ -7,14 +7,6 @@
       <v-flex xs12>
       </v-flex>
     </v-layout>
-    <v-btn
-              dark
-              fab
-              bottom
-              right
-              color="pink"
-            >
-    </v-btn>
   </v-container>
 </template>
 

@@ -4,16 +4,19 @@ import App from './App.vue';
 import router from './router';
 import store from './store';
 import './registerServiceWorker';
-import VueResource from 'vue-resource';
+
 import VueRx from 'vue-rx';
 
-Vue.config.productionTip = false;
+const VueApp: any = Vue;
 
-Vue.use(VueResource);
+Vue.config.productionTip = false;
+VueApp.url.options.root = 'http://localhost:8082';
+
 Vue.use(VueRx);
 
-new Vue({
+new VueApp({
   router,
   store,
-  render: (h) => h(App),
+  render: (h: any) => h(App),
+
 }).$mount('#app');
